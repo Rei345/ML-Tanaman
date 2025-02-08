@@ -1,38 +1,3 @@
-# import pandas as pd
-# import matplotlib.pyplot as plt
-# import seaborn as sns
-# from sklearn.model_selection import train_test_split
-# from sklearn.ensemble import RandomForestClassifier
-# from sklearn.metrics import accuracy_score
-
-# # Load dataset dari file CSV (pastikan file ada di folder yang sama)
-# df = pd.read_csv("Crop_recommendation.csv")
-
-# # Exsplorasi Data
-# print(df.head())
-# print(df.isnull().sum())
-
-# # Visualisasi distribusi pH tanah
-# sns.histplot(df["ph"], bins=20, kde=True)
-# plt.show()
-
-# # Pisahkan fitur & label
-# X = df.drop("label", axis=1)
-# y = df["label"]
-
-# # Split data (80% train, 20% test)
-# X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=42)
-
-# # Buat model Random Forest
-# model = RandomForestClassifier(n_estimators=100, random_state=42)
-# model.fit(X_train, y_train)
-
-# # Prediksi
-# y_pred = model.predict(X_test)
-
-# # Evaluasi akurasi
-# print("Accuracy:", accuracy_score(y_test, y_pred))
-
 import pandas as pd
 import seaborn as sns
 import matplotlib.pyplot as plt

@@ -3,14 +3,16 @@ import pandas as pd
 # Baca file CSV
 df = pd.read_csv("Crop_recommendation.csv")
 
+# Kelompokkan data bedasarkan label tanaman, lalu hitung rata rata setiap kolom
+df_grouped = df.groupby("label").mean()
+
 # Konversi DataFrame ke dictionary
 plant_data = {}
-for index, row in df.iterrows():
-    plant_name = row["label"].lower()
-    plant_data[plant_name] = {
-        "ph": round(row["ph"], 2),  # Format pH jadi 2 desimal
-        "temperature": round(row["temperature"], 2),  # Format suhu jadi
-        "humidity": f"{row['humidity']:.2f}%",  # Format kelembapan jadi 2 desimal
+for plant_name, row in df_grouped.iterrows():
+    plant_data[plant_name.lower()] = {
+        "ph": round(row["ph"], 2),
+        "temperature": round(row["temperature"], 2),
+        "humidity": f"{row['humidity']:.2f}%",
         "nutrients": f"Nitrogen: {row['N']}, Fosfor: {row['P']}, Kalium: {row['K']}"
     }
 
